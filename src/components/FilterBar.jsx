@@ -1,6 +1,7 @@
 import { Search, SlidersHorizontal } from "lucide-react";
 import { useState } from "react";
 import { FILTERS } from "../utils/taskFilters";
+import { Input } from "./ui/input";
 
 export function FilterBar({
   filter,
@@ -34,8 +35,8 @@ export function FilterBar({
       <label className="order-1 flex h-11 min-w-0 flex-1 items-center gap-3 rounded-xl border border-[#dfe2d8] bg-[#fffef9] px-3 text-[#96a097] shadow-sm transition focus-within:border-lime-400 focus-within:ring-4 focus-within:ring-lime-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-400 dark:focus-within:ring-lime-900/30 sm:order-2 sm:max-w-[255px]">
         <Search size={18} />
         <span className="sr-only">Search by title</span>
-        <input
-          className="min-w-0 flex-1 bg-transparent text-sm text-[#152017] outline-none placeholder:text-[#a5aca3] dark:text-slate-100 dark:placeholder:text-slate-500"
+        <Input
+          className="h-auto min-w-0 border-0 bg-transparent p-0 shadow-none focus:border-0 focus:ring-0"
           value={search}
           onChange={(event) => onSearchChange(event.target.value)}
           placeholder="Search tasks"

@@ -1,4 +1,5 @@
 import { CheckCircle2, CircleDashed, ListChecks } from "lucide-react";
+import { Card } from "./ui/card";
 
 const stats = [
   { key: "total", label: "Total tasks", icon: ListChecks },
@@ -13,8 +14,8 @@ export function Stats({ counts }) {
       aria-label="Task summary"
     >
       {stats.map(({ key, label, icon: Icon }) => (
-        <div
-          className="group flex items-center gap-3 rounded-[13px] border border-[#dedfd7] bg-[#fffef9] p-4 transition duration-200 hover:-translate-y-1 hover:border-[#c7cfc0] hover:shadow-[0_12px_24px_rgba(21,32,23,.07)] dark:border-slate-700 dark:bg-slate-900 dark:hover:border-slate-600"
+        <Card
+          className="group flex items-center gap-3 rounded-[13px] p-4 transition duration-200 hover:-translate-y-1 hover:border-[#c7cfc0] hover:shadow-[0_12px_24px_rgba(21,32,23,.07)] dark:hover:border-slate-600"
           key={key}
         >
           <div
@@ -30,7 +31,7 @@ export function Stats({ counts }) {
               {label}
             </span>
           </div>
-        </div>
+        </Card>
       ))}
     </section>
   );

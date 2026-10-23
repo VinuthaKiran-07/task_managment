@@ -1,5 +1,6 @@
 import { ArrowUpRight, Plus } from "lucide-react";
 import { MobileMenuButton } from "./Sidebar";
+import { Button } from "./ui/button";
 
 export function DashboardHeader({ view, onAdd, onOpenSidebar }) {
   return (
@@ -14,13 +15,9 @@ export function DashboardHeader({ view, onAdd, onOpenSidebar }) {
           </strong>
         </div>
       </div>
-      <button
-        className="flex items-center gap-2 rounded-lg border-0 bg-[#152017] px-4 py-2.5 text-xs font-semibold text-[#f3f6ec] shadow-lg shadow-[#152017]/10 transition hover:-translate-y-0.5 hover:bg-[#293829] dark:bg-lime-300 dark:text-[#152017] dark:hover:bg-lime-200"
-        type="button"
-        onClick={onAdd}
-      >
+      <Button onClick={onAdd}>
         <Plus size={17} /> Add task
-      </button>
+      </Button>
     </header>
   );
 }

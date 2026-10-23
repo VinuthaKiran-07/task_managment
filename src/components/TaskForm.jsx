@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, X } from "lucide-react";
 import { getDateKey } from "../utils/date";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
 
 const EMPTY_FORM = {
   title: "",
@@ -91,17 +94,14 @@ export function TaskForm({
           </button>
         </div>
         <form onSubmit={handleSubmit}>
-          <label
-            className="mb-2 flex justify-between text-[11px] font-semibold text-[#566256] dark:text-slate-300"
-            htmlFor="task-title"
-          >
+          <Label className="mb-2 flex justify-between" htmlFor="task-title">
             Title{" "}
             <span className="font-mono text-[10px] font-normal text-[#9aa39a]">
               Required
             </span>
-          </label>
-          <input
-            className="mb-[18px] w-full rounded-lg border border-[#dce0d6] bg-[#f2f3ec] px-3 py-3 text-xs text-[#152017] outline-none placeholder:text-[#aab1a9] focus:border-lime-500 focus:ring-4 focus:ring-lime-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-lime-900/30"
+          </Label>
+          <Input
+            className="mb-[18px] h-auto rounded-lg border-[#dce0d6] bg-[#f2f3ec] py-3 text-xs dark:border-slate-700 dark:bg-slate-800"
             id="task-title"
             name="title"
             value={form.title}
@@ -127,17 +127,14 @@ export function TaskForm({
             placeholder="Add enough context for future-you..."
             rows="4"
           />
-          <label
-            className="mb-2 flex justify-between text-[11px] font-semibold text-[#566256] dark:text-slate-300"
-            htmlFor="task-due-date"
-          >
+          <Label className="mb-2 flex justify-between" htmlFor="task-due-date">
             Due date{" "}
             <span className="font-mono text-[10px] font-normal text-[#9aa39a]">
               Optional
             </span>
-          </label>
-          <input
-            className="mb-[18px] w-full rounded-lg border border-[#dce0d6] bg-[#f2f3ec] px-3 py-3 text-xs text-[#152017] outline-none focus:border-lime-500 focus:ring-4 focus:ring-lime-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:focus:ring-lime-900/30"
+          </Label>
+          <Input
+            className="mb-[18px] h-auto rounded-lg border-[#dce0d6] bg-[#f2f3ec] py-3 text-xs dark:border-slate-700 dark:bg-slate-800"
             id="task-due-date"
             name="dueDate"
             type="date"
@@ -176,12 +173,9 @@ export function TaskForm({
               {error}
             </p>
           )}
-          <button
-            className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border-0 bg-[#152017] px-4 py-3 text-xs font-semibold text-[#f3f6ec] shadow-lg shadow-[#152017]/10 transition hover:-translate-y-0.5 hover:bg-[#293829] dark:bg-lime-300 dark:text-[#152017] dark:hover:bg-lime-200"
-            type="submit"
-          >
+          <Button className="mt-3 w-full py-3" type="submit">
             {isEditing ? "Save changes" : "Add task"} <ArrowUpRight size={17} />
-          </button>
+          </Button>
         </form>
       </section>
     </div>

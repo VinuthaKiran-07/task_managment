@@ -1,4 +1,6 @@
 import { Check, Circle, MoreHorizontal, Pencil, Trash2 } from "lucide-react";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
 
 const priorityLabels = { low: "Low", medium: "Medium", high: "High" };
 
@@ -30,14 +32,12 @@ export function TaskCard({ task, onToggle, onEdit, onDelete }) {
           >
             {task.title}
           </h3>
-          <span
-            className={`inline-flex items-center gap-1.5 rounded-full px-2 py-1 font-mono text-[9px] ${task.priority === "high" ? "bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-300" : task.priority === "medium" ? "bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300" : "bg-sky-100 text-sky-700 dark:bg-sky-900/50 dark:text-sky-300"}`}
-          >
+          <Badge variant={task.priority}>
             <i
               className={`h-1.5 w-1.5 rounded-full ${task.priority === "high" ? "bg-red-500" : task.priority === "medium" ? "bg-amber-500" : "bg-sky-500"}`}
             />
             {priorityLabels[task.priority]}
-          </span>
+          </Badge>
         </div>
         {task.description && (
           <p className="mt-2 max-w-[65ch] text-xs leading-relaxed text-[#828a82] dark:text-slate-400">
@@ -46,22 +46,22 @@ export function TaskCard({ task, onToggle, onEdit, onDelete }) {
         )}
       </div>
       <div className="flex gap-1 opacity-0 transition group-hover:opacity-100 focus-within:opacity-100 max-sm:col-start-2 max-sm:mt-[-5px] max-sm:opacity-100">
-        <button
-          className="grid h-7 w-7 place-items-center rounded-md border-0 bg-transparent text-[#9aa198] transition hover:bg-[#e7e9e1] hover:text-[#152017] dark:text-slate-500 dark:hover:bg-slate-700 dark:hover:text-slate-100"
-          type="button"
+        <Button
+          variant="ghost"
+          size="iconSm"
           onClick={() => onEdit(task)}
           aria-label={`Edit ${task.title}`}
         >
           <Pencil size={15} />
-        </button>
-        <button
-          className="grid h-7 w-7 place-items-center rounded-md border-0 bg-transparent text-[#586458] transition hover:bg-red-50 hover:text-red-600 dark:text-white dark:hover:bg-red-950/40 dark:hover:text-red-300"
-          type="button"
+        </Button>
+        <Button
+          variant="destructive"
+          size="iconSm"
           onClick={() => onDelete(task.id)}
           aria-label={`Delete ${task.title}`}
         >
           <Trash2 size={15} />
-        </button>
+        </Button>
       </div>
     </article>
   );
